@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<meta charset="utf-8" />
+	<title>MongoSPY</title>
+	<link rel="stylesheet" type="text/css" href="/styles/semantic.min.css">
 	
-	<script src="/jquery.min.js"></script>
+	<script src="/javascripts/jquery.min.js"></script>
+	<script src="/javascripts/semantic.min.js"></script>
+	
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="http://code.highcharts.com/highcharts.js"></script>
 	<script src="http://code.highcharts.com/modules/exporting.js"></script>
@@ -122,14 +126,26 @@
 	</script>
 </head>
 <body>
-
-	<input id="server_host" value="127.0.0.1" />
-	<input id="server_port" value="27017" />
-	<button id="server_connect">connect</button>
-
-
-	<div id="container" style="width: 310px; height: 200px; margin: 0 auto"></div>
-
-
+	<div class="ui grid">
+		<div class="eight wide column">
+			<div class="ui form">
+				<div class="inline fields">
+					<div class="field">
+						<input type="text"  id="server_host" value="127.0.0.1" placeholder="127.0.0.1" />
+					</div>
+					<div class="field">
+						<input type="text" id="server_port" value="27017" placeholder="27017" />
+					</div>
+					<div class="field">
+						<button class="ui button" id="server_connect">Connect</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="eight wide column">
+			<div id="container" style="width: 310px; height: 200px; margin: 0 auto"></div>
+		</div>
+	</div>
 </body>
 </html>

@@ -51,6 +51,7 @@ app.get('/', function (reseq, res) {
 
 var dbs = new Array();
 
+io.set('log level', 1);
 
 io.sockets.on('connection', function (socket) {
 
@@ -82,16 +83,8 @@ io.sockets.on('connection', function (socket) {
         var i = dbs.indexOf(socket);
         delete dbs[i];
       }
+
    });
 
-  //socket.emit('board',currentBoard.get())
-  // socket.on('board', function (data) {
-  //   socket.get('nickname',function(err, nickname) {
-  //     var boardInfo = currentBoard.get();
-  //     boardInfo["nickname"] = ""+nickname;
-  //     socket.emit('board', boardInfo);
-  //   });
-
-  // });
 });
 
