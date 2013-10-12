@@ -1,0 +1,22 @@
+{
+    "name": "mongospy",
+    "private": true,
+    "description": "",
+    "version": "0.1.0",
+    "author": {
+        "name": "Kamil Załęski",
+        "email": "kamil.zaleski@gmail.com",
+        "url": "http://kamilzaleski.com/"
+    },
+    "dependencies": {
+        "mongodb" : "*",
+    	"ejs" : "*",
+        "socket.io" : "*",
+        "express" : "*"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "start": "node app.js",
+    	"test": "mocha --ui tdd -R spec"
+  	}
+}
