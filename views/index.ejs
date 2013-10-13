@@ -33,7 +33,24 @@
 		});
 
 		socket.on('inprog', function(data) {
-			console.log('inprog',data);
+			
+			var html = "";			
+
+			data.inprog.forEach(function(op) {
+
+				if (op.active == true) {
+					html += "<tr>";
+				    html += "  <td>"+op.ns+"</td>";
+				    html += "  <td>"+JSON.stringify(op.query)+"</td>";
+				    html += "  <td>"+op.secs_running+"</td>";
+				    html += "</tr>";
+				}
+
+			});
+
+
+			$("#inprog").html(html);
+
 		});
 
 		socket.on('current', function (data) {
@@ -149,6 +166,43 @@
 					</div>
 				</div>
 			</div>
+
+
+			<table class="ui sortable table segment">
+			  <thead>
+			    <tr>
+			    	<th>NS</th>
+			    	<th>Query</th>
+			    	<th>Sec</th>
+			  	</tr>
+			  </thead>
+			  <tbody id="inprog">
+			    
+			    
+			  </tbody>
+			  <tfoot>
+			    </tfoot>
+			</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		</div>
 		
 		<div class="eight wide column">
