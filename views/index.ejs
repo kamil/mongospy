@@ -26,10 +26,18 @@
 			socket.emit('connect', $("#server_host").val(), $("#server_port").val() )
 		})
 
-		socket.on('info', function (data) {
-			console.log(data)
+		socket.on('serverStatus', function (data) {
+			//console.log(data)
 			var a = $('#container').highcharts()
 			a.series[0].addPoint([(new Date()).getTime(),   data.connections.current ],true,true)
+		});
+
+		socket.on('inprog', function(data) {
+			console.log('inprog',data);
+		});
+
+		socket.on('current', function (data) {
+			console.log('current',data)
 		});
 
 

@@ -63,7 +63,14 @@ io.sockets.on('connection', function (socket) {
       
       setInterval(function() {
         adminDb.serverStatus(function(err, info) {
-          socket.emit('info',info);
+          socket.emit('serverStatus',info);
+        });
+      },1000);
+
+      setInterval(function() {
+        db.collection('$cmd.sys.inprog').findOne(function (err, data) {
+          if (err) { throw err; }
+          socket.emit('inprog', data);
         });
       },1000);
 
